@@ -34,7 +34,8 @@ public class CoffeeService {
     }
 
     public Coffee deleteCoffee(Integer id) {
+        Coffee coffee = coffeeRepository.findById(id).orElse(null);
         coffeeRepository.deleteById(id);
-        return coffeeRepository.findById(id).orElse(null);
+        return coffee;
     }
 }
